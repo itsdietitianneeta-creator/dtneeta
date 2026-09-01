@@ -1,0 +1,18 @@
+.transformations-page-section {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+.transformations-page-section .enroll-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+
+.transformations-page-section .enroll-back-link:hover {
+  text-decoration: underline;
+}

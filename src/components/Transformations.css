@@ -1,0 +1,135 @@
+.transformations-section {
+  position: relative;
+}
+
+.transformations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Minimal homepage teaser cards */
+.transform-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.transform-mini-card {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  display: block;
+}
+
+.transform-mini-img-box {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transform-mini-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.transform-mini-card:hover .transform-mini-img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .transform-mini-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    margin: 0 -1rem 1.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .transform-mini-card {
+    flex: 0 0 65%;
+    scroll-snap-align: center;
+  }
+}
+
+.transform-card {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  display: block;
+}
+
+.card-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transform-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.transform-card:hover .transform-img {
+  transform: scale(1.04);
+}
+
+.transform-footer-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.transform-footer-cta p {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@media (max-width: 992px) {
+  .transformations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .transformations-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,57 @@
+:root {
+  /* Color Tokens - Pink/Magenta Theme (from logo) */
+  --primary-gradient: linear-gradient(135deg, #A81458 0%, #EC1E7C 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #870F47 0%, #C81768 100%);
+  --accent-gradient: linear-gradient(135deg, #9B9B9B 0%, #6E6E6E 100%);
+  --text-gradient: linear-gradient(135deg, #A81458 0%, #EC1E7C 100%);
+  --text-accent-gradient: linear-gradient(135deg, #FFB5A7 0%, #FFC2D4 100%);
+
+  --color-primary: #A81458;
+  --color-primary-light: #EC1E7C;
+  --color-accent: #9B9B9B;
+  --color-accent-soft: #FFB5A7;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #FBF7F9;
+  --bg-dark: #3A0A22;
+
+  --text-primary: #2D3748;
+  --text-secondary: #6B5A62;
+  --text-muted: #A18F97;
+  --text-white: #ffffff;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.85);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 10px 30px rgba(168, 20, 88, 0.08);
+
+  /* Shadows */
+  --card-shadow: 0px 0px 15px rgba(168, 20, 88, 0.12);
+  --card-shadow-hover: 0px 12px 30px rgba(168, 20, 88, 0.2);
+  --button-shadow: 0px 6px 20px rgba(236, 30, 124, 0.35);
+  --button-glow: 0px 8px 25px rgba(236, 30, 124, 0.55);
+
+  /* Borders & Radius */
+  --radius-pill: 30px;
+  --radius-card: 16px;
+  --radius-sm: 8px;
+  --radius-lg: 24px;
+
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+
+  /* Fluid Font Sizes using clamp() */
+  --fs-hero-title: clamp(2rem, 4.5vw, 3.5rem);
+  --fs-h2: clamp(1.75rem, 3.5vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-body: clamp(0.95rem, 1.2vw, 1.1rem);
+  --fs-small: clamp(0.85rem, 1vw, 0.95rem);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

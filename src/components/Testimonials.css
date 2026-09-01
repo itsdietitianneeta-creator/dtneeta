@@ -1,0 +1,86 @@
+.testimonials-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at bottom left, rgba(76, 154, 42, 0.06) 0%, rgba(255, 255, 255, 1) 70%);
+}
+
+.testimonials-bg-blur {
+  position: absolute;
+  top: 20%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: rgba(11, 79, 60, 0.06);
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+/* 4 cards per row on desktop, 2 per row tablet, 1 per row mobile */
+.testimonials-reel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.testimonial-reel-card {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.testimonial-reel-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Vertical 9:16 aspect ratio container */
+.reel-thumbnail-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 16px;
+  background: #000000;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-reel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-reel-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .testimonial-reel-card {
+    flex: 0 0 75%;
+    scroll-snap-align: center;
+  }
+}
