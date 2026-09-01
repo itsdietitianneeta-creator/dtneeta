@@ -24,6 +24,24 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
+  const handleNavClick = (e, href) => {
+    closeMobileMenu();
+
+    if (href.startsWith('/#')) {
+      const targetId = href.replace('/#', '');
+      const isHome = window.location.pathname === '/';
+
+      if (isHome) {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        }
+      }
+    }
+  };
+
   return (
     <header className={`navbar-header ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
@@ -38,7 +56,14 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="desktop-nav">
           {nav.links.map(link => (
-            <a key={link.href} href={link.href} className="nav-link">{link.label}</a>
+            <a
+              key={link.href}
+              href={link.href}
+              className="nav-link"
+              onClick={(e) => handleNavClick(e, link.href)}
+            >
+              {link.label}
+            </a>
           ))}
         </nav>
 
@@ -72,7 +97,14 @@ export default function Navbar() {
         </div>
         <div className="mobile-drawer-body">
           {nav.mobileLinks.map(link => (
-            <a key={link.href} href={link.href} onClick={closeMobileMenu} className="mobile-nav-link">{link.label}</a>
+            <a
+              key={link.href}
+              href={link.href}
+              className="mobile-nav-link"
+              onClick={(e) => handleNavClick(e, link.href)}
+            >
+              {link.label}
+            </a>
           ))}
 
           <div className="mobile-drawer-cta">

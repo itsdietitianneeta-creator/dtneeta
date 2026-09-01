@@ -162,10 +162,6 @@ export const siteData = {
       'Non-Starvation Weight Loss',
       'Hormone Balancing',
       'Post-Pregnancy Recovery'
-    ],
-    bottomLinks: [
-      { href: '/', label: 'Privacy Policy' },
-      { href: '/', label: 'Terms of Service' }
     ]
   }
 };

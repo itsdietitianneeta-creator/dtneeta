@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -18,6 +18,34 @@ export default function App() {
 
   // Trigger IntersectionObserver for reveal animations
   useScrollReveal();
+
+  useEffect(() => {
+    // Handle direct path aliases
+    if (path === '/contact') {
+      window.location.replace('/#contact');
+      return;
+    }
+    if (path === '/testimonials') {
+      window.location.replace('/#testimonials');
+      return;
+    }
+    if (path === '/programs') {
+      window.location.replace('/#programs');
+      return;
+    }
+
+    // Handle hash scroll on mount or route transition
+    const hash = window.location.hash;
+    if (hash && path === '/') {
+      const targetId = hash.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [path]);
 
   if (path === '/about') {
     return (

@@ -7,6 +7,22 @@ export default function Footer() {
   const { brand, social, footer, whatsapp } = siteData;
   const whatsappUrl = `https://wa.me/${whatsapp.number}`;
 
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('/#')) {
+      const targetId = href.replace('/#', '');
+      const isHome = window.location.pathname === '/';
+
+      if (isHome) {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        }
+      }
+    }
+  };
+
   return (
     <footer className="site-footer">
       <div className="container">
@@ -59,7 +75,11 @@ export default function Footer() {
             <h4>Quick Links</h4>
             <ul className="footer-links">
               {footer.quickLinks.map(link => (
-                <li key={link.href + link.label}><a href={link.href}><i className="fa-solid fa-angle-right"></i> {link.label}</a></li>
+                <li key={link.href + link.label}>
+                  <a href={link.href} onClick={(e) => handleNavClick(e, link.href)}>
+                    <i className="fa-solid fa-angle-right"></i> {link.label}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
@@ -69,7 +89,11 @@ export default function Footer() {
             <h4>Specializations</h4>
             <ul className="footer-links">
               {footer.specializations.map(item => (
-                <li key={item}><a href="/#programs"><i className="fa-solid fa-check"></i> {item}</a></li>
+                <li key={item}>
+                  <a href="/#programs" onClick={(e) => handleNavClick(e, '/#programs')}>
+                    <i className="fa-solid fa-check"></i> {item}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
@@ -95,14 +119,6 @@ export default function Footer() {
         {/* Footer Bottom Line */}
         <div className="footer-bottom">
           <p>© {currentYear} {brand.name} (Neeta Tiwari). All Rights Reserved.</p>
-          <div className="footer-sub-links">
-            {footer.bottomLinks.map((link, idx) => (
-              <React.Fragment key={link.label}>
-                {idx > 0 && <span>•</span>}
-                <a href={link.href}>{link.label}</a>
-              </React.Fragment>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
