@@ -1,5 +1,21 @@
 export const servicesData = [
   {
+    id: 'sustainable-weight-loss',
+    category: 'simple',
+    icon: 'fa-solid fa-fire-flame-curved',
+    title: 'Sustainable Weight Loss',
+    shortDesc: 'A zero-starvation, non-crash diet approach designed for long-term weight reduction and habit transformation.',
+    badge: 'High Success Rate',
+    fullDesc: 'Ditch extreme juice cleanses and calorie deprivation. Achieve lasting body transformation while enjoying your favorite meals.',
+    highlights: [
+      'No starvation, no artificial powders or supplements',
+      'Flexible portion control guidance tailored to your lifestyle',
+      'Weekly progress tracking & body measurement audits',
+      'Post-program maintenance plan to ensure weight stays off'
+    ],
+    duration: '2 to 6 Months Programs'
+  },
+  {
     id: 'pcos-reversal',
     category: 'therapeutic',
     icon: 'fa-solid fa-venus',
@@ -22,7 +38,7 @@ export const servicesData = [
     title: 'Thyroid Management Coaching',
     shortDesc: 'Dietary and lifestyle strategies tailored to support T3/T4 balance, boost metabolism, and overcome fatigue.',
     badge: 'Specialized',
-    fullDesc: 'Hypothyroidism and Hashimoto’s require specific micronutrients to reactivate sluggish metabolic rates.',
+    fullDesc: 'Hypothyroidism and Hashimoto\'s require specific micronutrients to reactivate sluggish metabolic rates.',
     highlights: [
       'Selenium & Zinc rich nutrient plan for thyroid hormone conversion',
       'Gut-cleansing routines to enhance nutrient absorption',
@@ -30,22 +46,6 @@ export const servicesData = [
       'Metabolic re-ignition to tackle stubborn thyroid weight gain'
     ],
     duration: '3 to 6 Months Programs'
-  },
-  {
-    id: 'sustainable-weight-loss',
-    category: 'simple',
-    icon: 'fa-solid fa-fire-flame-curved',
-    title: 'Sustainable Weight Loss',
-    shortDesc: 'A zero-starvation, non-crash diet approach designed for long-term weight reduction and habit transformation.',
-    badge: 'High Success Rate',
-    fullDesc: 'Ditch extreme juice cleanses and calorie deprivation. Achieve lasting body transformation while enjoying your favorite meals.',
-    highlights: [
-      'No starvation, no artificial powders or supplements',
-      'Flexible portion control guidance tailored to your lifestyle',
-      'Weekly progress tracking & body measurement audits',
-      'Post-program maintenance plan to ensure weight stays off'
-    ],
-    duration: '2 to 6 Months Programs'
   },
   {
     id: 'fatty-liver-reversal',

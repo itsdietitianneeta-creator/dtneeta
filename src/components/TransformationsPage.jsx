@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { transformationsData } from '../data/transformations';
 import './Transformations.css';
 import './TransformationsPage.css';
 
 export default function TransformationsPage() {
+  useEffect(() => {
+    document.title = 'Client Transformations | Dietitian Neeta — Real PCOS & Weight Loss Results';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', 'See real before-after client transformations — PCOS reversal, thyroid management, and sustainable weight loss with Dietitian Neeta Tiwari.');
+  }, []);
   return (
     <section className="transformations-page-section section-bg-alt">
       <div className="container">
@@ -30,7 +35,7 @@ export default function TransformationsPage() {
               <div className="card-image-box">
                 <img
                   src={item.image}
-                  alt={`Client Transformation ${item.id}`}
+                  alt={`PCOS diet transformation before after result ${item.id} — Dietitian Neeta Tiwari client success story`}
                   className="transform-img"
                   loading="lazy"
                 />

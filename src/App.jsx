@@ -8,6 +8,8 @@ import Transformations from './components/Transformations';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import EnrollPage from './components/EnrollPage';
+import PaymentPage from './components/PaymentPage';
+import PaymentSuccessPage from './components/PaymentSuccessPage';
 import TransformationsPage from './components/TransformationsPage';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -63,6 +65,28 @@ export default function App() {
       <div className="app-root">
         <Navbar />
         <EnrollPage />
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
+    );
+  }
+
+  if (path === '/payment') {
+    return (
+      <div className="app-root">
+        <Navbar />
+        <PaymentPage />
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
+    );
+  }
+
+  if (path === '/payment-success') {
+    return (
+      <div className="app-root">
+        <Navbar />
+        <PaymentSuccessPage />
         <Footer />
         <FloatingWhatsApp />
       </div>

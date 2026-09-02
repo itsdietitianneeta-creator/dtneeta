@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { servicesData } from '../data/services';
 import { siteData } from '../data/site';
 import './EnrollPage.css';
@@ -13,37 +13,32 @@ export default function EnrollPage() {
   const [serviceId, setServiceId] = useState(getInitialServiceId);
   const [durationIdx, setDurationIdx] = useState(1);
   const [form, setForm] = useState({ name: '', phone: '', email: '' });
-  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Enroll Now | Dietitian Neeta — PCOS & Thyroid Diet Expert';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', 'Book your personalized PCOS, Thyroid, or weight loss diet consultation with Certified Nutritionist Neeta Tiwari. Hyderabad & online.');
+  }, []);
 
   const service = servicesData.find(s => s.id === serviceId);
   const currentPackage = packages[service.category] || packages.simple;
   const selectedPricing = currentPackage.pricing[durationIdx] || currentPackage.pricing[0];
+  const originalPrice = Math.round(selectedPricing.price / 0.8);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (siteData.formEndpoint) {
-      try {
-        await fetch(siteData.formEndpoint, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: form.name,
-            phone: form.phone,
-            email: form.email,
-            program: service.title,
-            package: currentPackage.label,
-            duration: selectedPricing.label,
-            amount: selectedPricing.price
-          })
-        });
-      } catch (err) {
-        console.error('Google Sheet submission failed:', err);
-      }
-    }
-    setSubmitted(true);
+    sessionStorage.setItem('enrollmentData', JSON.stringify({
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      program: service.title,
+      package: currentPackage.label,
+      duration: selectedPricing.label,
+      amount: selectedPricing.price
+    }));
+    window.location.href = '/payment';
   };
 
   return (
@@ -97,59 +92,56 @@ export default function EnrollPage() {
 
           {/* Right: Enrollment Form */}
           <div className="enroll-form-col card reveal-init reveal-delay-2">
-            {submitted ? (
-              <div className="form-success-message">
-                <div className="success-icon"><i className="fa-solid fa-circle-check"></i></div>
-                <h3>Request Received!</h3>
-                <p>{siteData.brand.name}{contact.successNote} {form.phone || 'your number'} shortly to confirm your {service.title} enrollment.</p>
-                <a href="/" className="btn btn-primary">Back to Home</a>
+            <div className="form-header">
+              <h3>{contact.formHeading}</h3>
+              <p>{contact.formSubheading}</p>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <input type="text" name="name" placeholder="Full Name" required value={form.name} onChange={handleChange} />
+                <input type="tel" name="phone" placeholder="Phone Number" required value={form.phone} onChange={handleChange} />
               </div>
-            ) : (
-              <>
-                <div className="form-header">
-                  <h3>{contact.formHeading}</h3>
-                  <p>{contact.formSubheading}</p>
-                </div>
+              <input type="email" name="email" placeholder="Email Address" required value={form.email} onChange={handleChange} />
 
-                <form onSubmit={handleSubmit}>
-                  <div className="form-row">
-                    <input type="text" name="name" placeholder="Full Name" required value={form.name} onChange={handleChange} />
-                    <input type="tel" name="phone" placeholder="Phone Number" required value={form.phone} onChange={handleChange} />
+              <label className="enroll-select-label">Program Selected ({currentPackage.label})</label>
+              <select value={serviceId} onChange={(e) => { setServiceId(e.target.value); setDurationIdx(1); }}>
+                {servicesData.map(s => (
+                  <option key={s.id} value={s.id}>{s.title}</option>
+                ))}
+              </select>
+
+              <div className="duration-cards">
+                {currentPackage.pricing.map((p, idx) => (
+                  <div
+                    key={p.label}
+                    className={`duration-card ${idx === durationIdx ? 'active' : ''}`}
+                    onClick={() => setDurationIdx(idx)}
+                  >
+                    <span className="duration-label">{p.label}</span>
+                    <div className="duration-price">
+                      <span className="price-original">₹{Math.round(p.price / 0.8).toLocaleString('en-IN')}</span>
+                      <span className="duration-price-value">₹{p.price.toLocaleString('en-IN')}</span>
+                      <span className="discount-badge">20% OFF</span>
+                    </div>
                   </div>
-                  <input type="email" name="email" placeholder="Email Address" required value={form.email} onChange={handleChange} />
+                ))}
+              </div>
 
-                  <label className="enroll-select-label">Program Selected ({currentPackage.label})</label>
-                  <select value={serviceId} onChange={(e) => { setServiceId(e.target.value); setDurationIdx(1); }}>
-                    {servicesData.map(s => (
-                      <option key={s.id} value={s.id}>{s.title}</option>
-                    ))}
-                  </select>
+              <div className="amount-box">
+                <span>Amount to Pay</span>
+                <strong>
+                  <span className="price-original">₹{originalPrice.toLocaleString('en-IN')}</span>
+                  <span className="price-discounted">₹{selectedPricing.price.toLocaleString('en-IN')}</span>
+                  <span className="discount-badge">20% OFF</span>
+                </strong>
+              </div>
 
-                  <div className="duration-cards">
-                    {currentPackage.pricing.map((p, idx) => (
-                      <div
-                        key={p.label}
-                        className={`duration-card ${idx === durationIdx ? 'active' : ''}`}
-                        onClick={() => setDurationIdx(idx)}
-                      >
-                        <span className="duration-label">{p.label}</span>
-                        <span className="duration-price">₹{p.price.toLocaleString('en-IN')}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="amount-box">
-                    <span>Amount to Pay</span>
-                    <strong>₹{selectedPricing.price.toLocaleString('en-IN')}</strong>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary w-full form-submit-btn">
-                    <i className="fa-solid fa-calendar-check"></i> Submit Enrollment
-                  </button>
-                  <p className="form-privacy-note">{contact.privacyNote}</p>
-                </form>
-              </>
-            )}
+              <button type="submit" className="btn btn-primary w-full form-submit-btn">
+                <i className="fa-solid fa-arrow-right"></i> Proceed to Payment
+              </button>
+              <p className="form-privacy-note">{contact.privacyNote}</p>
+            </form>
           </div>
         </div>
       </div>

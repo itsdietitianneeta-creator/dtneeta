@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { siteData } from '../data/site';
 import './AboutPage.css';
 
 export default function AboutPage() {
   const { about, social } = siteData;
+
+  useEffect(() => {
+    document.title = 'About Neeta Tiwari | Certified Nutritionist — PCOS & Thyroid Expert';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', 'Meet Certified Nutritionist Neeta Tiwari — her journey, philosophy, and 10+ years of expertise in reversing PCOS, Thyroid, and managing weight with natural Indian diets.');
+  }, []);
 
   return (
     <main className="about-page">

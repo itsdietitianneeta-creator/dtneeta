@@ -25,7 +25,7 @@ export default function Hero() {
           <p className="hero-subheadline">{hero.subheadline}</p>
 
           <div className="hero-cta-group">
-            <a href="/enroll" className="btn btn-primary btn-lg hero-btn-primary">
+            <a href="/enroll?service=sustainable-weight-loss" className="btn btn-primary btn-lg hero-btn-primary">
               <i className="fa-solid fa-calendar-check"></i> {hero.ctaPrimary}
             </a>
             <a href="/#transformations" className="btn btn-secondary btn-lg">

@@ -108,7 +108,7 @@ export default function Footer() {
               <i className="fa-brands fa-instagram"></i> {social.instagramHandle} ({social.followers})
             </p>
             <div className="footer-cta-box">
-              <a href="/enroll" className="btn btn-primary btn-sm w-full">
+              <a href="/enroll?service=sustainable-weight-loss" className="btn btn-primary btn-sm w-full">
                 <i className="fa-solid fa-calendar-check"></i> Book Consultation
               </a>
             </div>

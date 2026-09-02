@@ -68,7 +68,7 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar-actions">
-          <a href="/enroll" className="btn btn-primary btn-sm nav-cta">
+          <a href="/enroll?service=sustainable-weight-loss" className="btn btn-primary btn-sm nav-cta">
             <i className="fa-solid fa-calendar-check"></i> {nav.ctaText}
           </a>
 
@@ -108,7 +108,7 @@ export default function Navbar() {
           ))}
 
           <div className="mobile-drawer-cta">
-            <a href="/enroll" onClick={closeMobileMenu} className="btn btn-primary w-full">
+            <a href="/enroll?service=sustainable-weight-loss" onClick={closeMobileMenu} className="btn btn-primary w-full">
               <i className="fa-solid fa-calendar-check"></i> {nav.ctaText}
             </a>
             <a

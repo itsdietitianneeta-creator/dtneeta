@@ -1,3 +1,7 @@
+/* =========================================
+   ENROLL PAGE — LAYOUT
+   ========================================= */
+
 .enroll-section {
   padding-top: 8rem;
   padding-bottom: 5rem;
@@ -46,6 +50,10 @@
   top: 6.5rem;
 }
 
+/* =========================================
+   FORM INPUTS
+   ========================================= */
+
 .enroll-select-label {
   display: block;
   font-size: 0.85rem;
@@ -66,6 +74,7 @@
   color: var(--text-primary);
   background: #ffffff;
   transition: var(--transition-normal);
+  box-sizing: border-box;
 }
 
 .enroll-form-col input:focus,
@@ -84,6 +93,145 @@
   margin-bottom: 0;
 }
 
+/* =========================================
+   DURATION / PRICE CARDS
+   ========================================= */
+
+.duration-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.duration-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.9rem 0.5rem 0.8rem;
+  border: 2px solid rgba(168, 20, 88, 0.18);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.duration-card:hover {
+  border-color: var(--color-primary-light, #e83b8e);
+  box-shadow: 0 4px 14px rgba(168, 20, 88, 0.12);
+}
+
+.duration-card.active {
+  border-color: var(--color-primary, #a81458);
+  background: rgba(168, 20, 88, 0.04);
+  box-shadow: 0 4px 18px rgba(168, 20, 88, 0.18);
+}
+
+/* "1 Month", "3 Months" label */
+.duration-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Price block inside each card */
+.duration-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+/* Discounted price in the card */
+.duration-price-value {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-primary, #a81458);
+  white-space: nowrap;
+}
+
+/* =========================================
+   SHARED PRICE PRIMITIVES
+   ========================================= */
+
+/* Strikethrough original price */
+.price-original {
+  text-decoration: line-through;
+  color: var(--color-text-muted, #aaa);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Bold discounted price (used in amount-box) */
+.price-discounted {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary, #a81458);
+  white-space: nowrap;
+}
+
+/* =========================================
+   DISCOUNT BADGE
+   ========================================= */
+
+.discount-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6b6b6b;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   AMOUNT TO PAY BOX
+   ========================================= */
+
+.amount-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: rgba(168, 20, 88, 0.05);
+  border: 1.5px solid rgba(168, 20, 88, 0.2);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.amount-box > span {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.amount-box > strong {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: nowrap;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
 @media (max-width: 992px) {
   .enroll-grid {
     grid-template-columns: 1fr;
@@ -101,5 +249,13 @@
 
   .enroll-form-col {
     padding: 1.5rem;
+  }
+
+  .duration-cards {
+    gap: 0.5rem;
+  }
+
+  .duration-label {
+    font-size: 0.8rem;
   }
 }

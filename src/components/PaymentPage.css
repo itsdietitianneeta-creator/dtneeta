@@ -1,0 +1,327 @@
+/* =========================================
+   PAYMENT PAGE — LAYOUT
+   ========================================= */
+
+.payment-section {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ── Order summary (left) ── */
+
+.payment-summary {
+  padding: 2rem;
+  position: sticky;
+  top: 6.5rem;
+}
+
+.payment-summary-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-primary);
+}
+
+.payment-summary-header h2 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(168, 20, 88, 0.08);
+  font-size: 0.92rem;
+}
+
+.summary-row span {
+  color: var(--text-secondary);
+}
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(168, 20, 88, 0.15);
+}
+
+.summary-total-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.summary-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.85rem;
+  background: rgba(11, 79, 60, 0.06);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Payment details (right) ── */
+
+.payment-amount-hero {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.pay-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.pay-amount {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0.25rem 0;
+}
+
+.pay-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.payment-method-card {
+  padding: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.method-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.method-header .copy-all-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ── Copy buttons ── */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(168, 20, 88, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(168, 20, 88, 0.2);
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: rgba(168, 20, 88, 0.15);
+}
+
+.copy-btn-sm {
+  padding: 0.25rem 0.5rem;
+  margin-left: auto;
+}
+
+.method-icon {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-top: 0.2rem;
+}
+
+.method-header h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.method-header p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.payment-qr {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 0.75rem;
+  border-radius: 12px;
+  border: 2px solid rgba(168, 20, 88, 0.12);
+}
+
+.qr-caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+}
+
+.upi-app-btn {
+  margin-bottom: 0.5rem;
+}
+
+.upi-app-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #999);
+  margin: 0 0 1rem;
+}
+
+.upi-id-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(168, 20, 88, 0.15);
+}
+
+.upi-value {
+  color: var(--color-primary);
+}
+
+.bank-details-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.bank-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.bank-row span {
+  color: var(--text-secondary);
+}
+
+.mono {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.03em;
+}
+
+.payment-cta-block {
+  margin-top: 1.5rem;
+}
+
+.utr-input-group {
+  margin-bottom: 1rem;
+}
+
+.utr-input-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.utr-input-group .req-star {
+  color: var(--color-primary);
+}
+
+.utr-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-card);
+  border: 2px solid rgba(168, 20, 88, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  transition: border-color 0.2s;
+}
+
+.utr-input:focus {
+  outline: none;
+  border-color: var(--color-primary-light);
+}
+
+.utr-hint {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  margin: 0.35rem 0 0;
+}
+
+.utr-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  margin: 0.35rem 0 0;
+  font-weight: 600;
+}
+
+.payment-screenshot-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: rgba(168, 20, 88, 0.05);
+  border: 1px solid rgba(168, 20, 88, 0.15);
+  border-radius: 10px;
+  padding: 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.payment-confirm-btn {
+  font-size: 1rem;
+}
+
+.payment-confirm-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 992px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 576px) {
+  .payment-summary,
+  .payment-method-card {
+    padding: 1.25rem;
+  }
+
+  .payment-qr {
+    width: 170px;
+    height: 170px;
+  }
+}

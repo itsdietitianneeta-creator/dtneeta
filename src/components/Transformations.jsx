@@ -27,7 +27,7 @@ export default function Transformations() {
               <div className="transform-mini-img-box">
                 <img
                   src={item.image}
-                  alt={`Transformation ${item.id}`}
+                  alt={`PCOS weight loss diet transformation result ${item.id} — Dietitian Neeta client`}
                   className="transform-mini-img"
                   loading="lazy"
                 />

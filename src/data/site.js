@@ -59,7 +59,7 @@ export const siteData = {
   },
 
   whatsapp: {
-    number: '919000000000',
+    number: '918837281177',
     consultationMessage: 'Hi Dietitian Neeta, I want to book a consultation',
     floatingMessage: 'Hi Dietitian Neeta, I want to know more about PCOS and weight loss diet plans',
     floatingTooltip: 'Chat with Neeta Tiwari'
@@ -82,7 +82,7 @@ export const siteData = {
     subheadline: 'Certified Nutritionist Neeta Tiwari lost 25kg and reversed her own PCOS & Thyroid — now helping 3000+ clients do the same without starvation or crash diets.',
     ctaPrimary: 'Book Consultation',
     ctaSecondary: 'See Transformations',
-    image: 'https://res.cloudinary.com/fxrjzppj/image/upload/v1788250969/Screenshot_2026-09-01_135234.png',
+    image: 'https://res.cloudinary.com/fxrjzppj/image/upload/v1788335418/WhatsApp_Image_2026-09-01_at_20.59.29_1.jpg',
     imageAlt: 'Dietitian Neeta Tiwari - Certified Nutritionist',
     stats: [
       { num: '25 kg', label: 'Personal Weight Loss' },
@@ -100,7 +100,7 @@ export const siteData = {
     titlePrefix: 'Hi, I’m ',
     titleHighlight: 'Neeta Tiwari',
     lead: 'Dietitian, mother of 2 kids, and health coach helping women reverse PCOS, Thyroid, and manage weight naturally with everyday Indian home food.',
-    image: 'https://res.cloudinary.com/fxrjzppj/image/upload/v1788250131/Screenshot_2026-09-01_133835.png',
+    image: 'https://res.cloudinary.com/fxrjzppj/image/upload/v1788335418/WhatsApp_Image_2026-09-01_at_20.59.29_2.jpg',
     imageAlt: 'Neeta Tiwari - Certified Nutritionist Hyderabad',
     experienceBadge: { num: '5+ Yrs', label: 'Experience' },
     location: 'Hyderabad, Telangana',
@@ -163,5 +163,16 @@ export const siteData = {
       'Hormone Balancing',
       'Post-Pregnancy Recovery'
     ]
+  },
+
+  // ─── PAYMENT ─────────────────────────────────────────────────────────────
+  // QR code is generated dynamically from the UPI deep link (see PaymentPage.jsx) —
+  // no static QR image needed, it always reflects the exact amount + program.
+  payment: {
+    bankName: 'HDFC Bank',
+    accountName: 'Neeta Tiwari',
+    accountNumber: '50100407570020',
+    ifsc: 'HDFC0000115',
+    upiId: '8837281177@pthdfc'
   }
 };
