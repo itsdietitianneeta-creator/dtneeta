@@ -50,15 +50,6 @@ export default function Footer() {
                 <i className="fa-brands fa-instagram"></i>
               </a>
               <a
-                href={social.facebookUrl}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook Neeta Tiwari"
-                className="social-btn facebook-btn"
-              >
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
