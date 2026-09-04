@@ -300,12 +300,12 @@
   }
 
   .float-card-1 {
-    top: -14px;
-    left: -10px;
+    top: 8px;
+    left: 8px;
   }
 
   .float-card-2 {
-    bottom: 6%;
-    right: -10px;
+    bottom: 8px;
+    right: 8px;
   }
 }
