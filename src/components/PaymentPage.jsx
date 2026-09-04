@@ -78,10 +78,6 @@ export default function PaymentPage() {
 
   const originalAmount = Math.round(data.amount / 0.8);
 
-  // Build a standard UPI deep link — works with GPay, PhonePe, Paytm, BHIM, etc.
-  // Amount + note are always in sync with what the user selected on the Enroll page.
-  const upiLink = `upi://pay?pa=${encodeURIComponent(payment.upiId)}&pn=${encodeURIComponent(payment.accountName)}&am=${data.amount}&cu=INR&tn=${encodeURIComponent(data.program)}`;
-  const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiLink)}`;
 
   return (
     <section className="payment-section section-bg-alt">
@@ -148,27 +144,15 @@ export default function PaymentPage() {
               <p className="pay-sub">Use UPI / NEFT / IMPS — any method works</p>
             </div>
 
-            {/* UPI + QR */}
+            {/* UPI */}
             <div className="payment-method-card card">
               <div className="method-header">
-                <i className="fa-solid fa-qrcode method-icon"></i>
+                <i className="fa-solid fa-at method-icon"></i>
                 <div>
-                  <h3>Scan &amp; Pay via UPI</h3>
-                  <p>Works with PhonePe, GPay, Paytm, BHIM &amp; all UPI apps</p>
+                  <h3>Pay via UPI</h3>
+                  <p>Open your UPI app (PhonePe, GPay, Paytm, BHIM) and pay using either detail below</p>
                 </div>
               </div>
-
-              <img
-                src={qrImageUrl}
-                alt="Scan to pay via UPI — Dietitian Neeta"
-                className="payment-qr"
-              />
-              <p className="qr-caption">Amount ₹{Number(data.amount).toLocaleString('en-IN')} is pre-filled — just scan &amp; confirm in your UPI app.</p>
-
-              <a href={upiLink} className="btn btn-primary w-full upi-app-btn">
-                <i className="fa-solid fa-mobile-screen-button"></i> Pay ₹{Number(data.amount).toLocaleString('en-IN')} via UPI App
-              </a>
-              <p className="upi-app-note">On mobile, this opens GPay / PhonePe / Paytm directly with the amount filled in.</p>
 
               <div className="upi-id-row">
                 <i className="fa-solid fa-at"></i>
@@ -177,6 +161,16 @@ export default function PaymentPage() {
                 <button type="button" className="copy-btn" onClick={() => copyText(payment.upiId, 'upi')}>
                   <i className={`fa-solid ${copiedKey === 'upi' ? 'fa-check' : 'fa-copy'}`}></i>
                   {copiedKey === 'upi' ? 'Copied' : 'Copy'}
+                </button>
+              </div>
+
+              <div className="upi-id-row">
+                <i className="fa-solid fa-phone"></i>
+                <span>Mobile Number:</span>
+                <strong className="upi-value">{whatsapp.number.slice(-10)}</strong>
+                <button type="button" className="copy-btn" onClick={() => copyText(whatsapp.number.slice(-10), 'phone')}>
+                  <i className={`fa-solid ${copiedKey === 'phone' ? 'fa-check' : 'fa-copy'}`}></i>
+                  {copiedKey === 'phone' ? 'Copied' : 'Copy'}
                 </button>
               </div>
             </div>

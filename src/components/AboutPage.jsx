@@ -74,6 +74,17 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Photo Gallery */}
+      {about.photoGallery && about.photoGallery.length > 0 && (
+        <section className="gallery-scroll-section">
+          <div className="gallery-scroll-row">
+            {about.photoGallery.map((src, idx) => (
+              <img key={src} src={src} alt={`Neeta Tiwari ${idx + 1}`} className="gallery-scroll-img" loading="lazy" />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Journey Timeline */}
       <section className="journey-section">
         <div className="container">

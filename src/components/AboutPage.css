@@ -24,6 +24,45 @@
   padding: 4rem 0;
 }
 
+.gallery-scroll-section {
+  padding: 0.5rem 0 3rem;
+}
+
+.gallery-scroll-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0 1.5rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-scroll-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-scroll-row::-webkit-scrollbar-thumb {
+  background: rgba(168, 20, 88, 0.2);
+  border-radius: 10px;
+}
+
+.gallery-scroll-img {
+  flex: 0 0 auto;
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  scroll-snap-align: start;
+  box-shadow: var(--card-shadow);
+}
+
+@media (max-width: 576px) {
+  .gallery-scroll-img {
+    width: 200px;
+    height: 250px;
+  }
+}
+
 .about-page-intro-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;

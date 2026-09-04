@@ -119,6 +119,14 @@ export const siteData = {
     ctaText: 'Start Your Journey',
     knowMoreText: 'Know More About My Journey',
 
+    photoGallery: [
+      'https://res.cloudinary.com/fxrjzppj/image/upload/v1788335418/WhatsApp_Image_2026-09-01_at_20.59.29_3.jpg',
+      'https://res.cloudinary.com/fxrjzppj/image/upload/v1788335418/WhatsApp_Image_2026-09-01_at_20.59.29_1.jpg',
+      'https://res.cloudinary.com/fxrjzppj/image/upload/v1788335421/WhatsApp_Image_2026-09-01_at_20.59.29.jpg',
+      'https://res.cloudinary.com/fxrjzppj/image/upload/v1788250131/Screenshot_2026-09-01_133835.png',
+      'https://res.cloudinary.com/fxrjzppj/image/upload/v1788335418/WhatsApp_Image_2026-09-01_at_20.59.29_2.jpg'
+    ],
+
     journey: [
       { icon: 'fa-solid fa-heart-crack', title: 'The Struggle', desc: 'Diagnosed with Thyroid and PCOD, gaining around 25kg as a mom of 2 kids — struggling with low energy, depression, and hormonal imbalance.' },
       { icon: 'fa-solid fa-graduation-cap', title: 'The Decision to Act', desc: 'Instead of overthinking, I enrolled to study Nutrition & Dietetics at 34 years old to understand root-cause metabolic science.' },
