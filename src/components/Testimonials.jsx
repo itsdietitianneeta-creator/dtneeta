@@ -39,17 +39,15 @@ export default function Testimonials() {
 
         {activeTab === 'video' ? (
           /* 4-Column Reel Video Testimonial Grid */
-          <div className="testimonials-reel-grid">
-            {testimonialsData.map((item, idx) => (
-              <div
-                key={item.id}
-                className={`testimonial-reel-card reveal-init reveal-delay-${idx + 1}`}
-              >
+          <div className="testimonials-reel-grid tab-fade-in" key="video-tab">
+            {testimonialsData.map((item) => (
+              <div key={item.id} className="testimonial-reel-card">
                 <div className="reel-thumbnail-box">
                   <video
                     src={item.videoUrl}
                     controls
                     playsInline
+                    preload="metadata"
                     className="reel-video"
                   />
                 </div>
@@ -58,7 +56,7 @@ export default function Testimonials() {
           </div>
         ) : (
           /* Horizontal-scroll text testimonial screenshots */
-          <div className="testimonials-text-scroll-row">
+          <div className="testimonials-text-scroll-row tab-fade-in" key="text-tab">
             {textTestimonialImages.map((src, idx) => (
               <img
                 key={src}
